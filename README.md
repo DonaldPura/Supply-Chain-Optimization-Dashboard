@@ -6,7 +6,7 @@ Three-page executive dashboard built in Power BI Desktop on a retail orders data
 
 ## Business questions
 
-- Where is revenue coming from — by region, category and product?
+- Where is revenue coming from, by region, category and product?
 - Who are the top customers, where are they located, and how satisfied are they?
 - Which orders are stuck in the pipeline and how much revenue is at risk?
 - Is air shipping actually faster than ground, and by how much?
@@ -14,15 +14,15 @@ Three-page executive dashboard built in Power BI Desktop on a retail orders data
 
 ## Report pages
 
-**1 — Executive Overview.** KPI cards (Total Sales, Total Orders, Average Order Value, Average Product Price, Average Stock), weekly sales trend, sales by region/category, top 10 products, order status breakdown. Status donut cross-filters the whole page.
+**1) Executive Overview.** KPI cards (Total Sales, Total Orders, Average Order Value, Average Product Price, Average Stock), weekly sales trend, sales by region/category, top 10 products, order status breakdown. Status donut cross-filters the whole page.
 
-**2 — Customer Analysis.** Customer KPIs (customer count, revenue per customer, positive feedback rate), bubble map of customer locations, top 10 customers by revenue, orders & revenue matrix by country with data bars, payment method and feedback distribution.
+**2) Customer Analysis.** Customer KPIs (customer count, revenue per customer, positive feedback rate), bubble map of customer locations, top 10 customers by revenue, orders & revenue matrix by country with data bars, payment method and feedback distribution.
 
-**3 — Supply Chain Analysis.** Operational KPIs (fulfillment rate, cancellation rate, average shipping days, air share, revenue at risk), order pipeline by status, shipping method volume vs average delivery days (combo chart), **stock vs units sold quadrant scatter** for inventory prioritisation (top-left = overstock, bottom-right = stock-out risk), inventory treemap by subcategory, category × status heatmap. The scatter is deliberately excluded from cross-filtering so it always shows the full inventory picture.
+**3) Supply Chain Analysis.** Operational KPIs (fulfillment rate, cancellation rate, average shipping days, air share, revenue at risk), order pipeline by status, shipping method volume vs average delivery days (combo chart), **stock vs units sold quadrant scatter** for inventory prioritisation (top-left = overstock, bottom-right = stock-out risk), inventory treemap by subcategory, category × status heatmap. The scatter is deliberately excluded from cross-filtering so it always shows the full inventory picture.
 
 ## Data model
 
-- Single fact table `Sales` (48 orders, 24 columns) — sample dataset from a training context, kept intentionally small; the focus of this project is the modelling and design process.
+- Single fact table `Sales` (48 orders, 24 columns)  sample dataset from a training context, kept intentionally small; the focus of this project is the modelling and design process.
 - Dedicated DAX date dimension (`CALENDAR` over the order date range, week/month sort columns), auto date/time disabled.
 - Single-direction 1:* relationship `Date[Date] → Sales[Order Date]`.
 - Dedicated measure table `_Measures` with 20+ measures organised by area.
